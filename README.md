@@ -182,34 +182,7 @@ Optimized Context (Ready for Copilot)
 
 ## 🎨 Sidebar Interface
 
-The TokenTrim sidebar includes:
-
-```
-┌─────────────────────────────┐
-│ ⚡ TokenTrim                │
-├─────────────────────────────┤
-│ Prompt to Copilot           │
-│ ┌───────────────────────────┐│
-│ │ [textarea for input]      ││
-│ │ Shift+Enter to send       ││
-│ └───────────────────────────┘│
-│                             │
-│ Compression Metrics         │
-│ Original Lines    12,450    │
-│ Compressed Lines   1,240    │
-│ Compression Ratio   10.0x   │
-│ Tokens Saved       8,920    │
-│ Files Analyzed       45     │
-│                             │
-│ ✓ Compression Ready         │
-│                             │
-│ → Send to Copilot           │
-│ 🔄 Recache Context          │
-├─────────────────────────────┤
-│ Cache age: 2m ago           │
-│ Built with lean-ctx         │
-└─────────────────────────────┘
-```
+![TokenTrim Sidebar UI](ui.png)
 
 ## 📊 Metrics Explained
 
