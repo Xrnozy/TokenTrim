@@ -182,7 +182,7 @@ Optimized Context (Ready for Copilot)
 
 ## 🎨 Sidebar Interface
 
-![TokenTrim Sidebar UI](ui.png)
+![TokenTrim Sidebar UI](media/ui.png)
 
 ## 📊 Metrics Explained
 
