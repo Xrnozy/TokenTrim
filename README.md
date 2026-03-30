@@ -310,12 +310,6 @@ Contributions welcome! Areas for improvement:
 - [ ] Code review mode
 - [ ] Team settings sync
 
-## 📞 Support
 
-- GitHub Issues: [TokenTrim Issues](https://github.com/your-repo/issues)
-- VS Code Marketplace: [TokenTrim Extension](https://marketplace.visualstudio.com)
-- Documentation: See [ARCHITECTURE.md](./ARCHITECTURE.md)
-
----
 
 **TokenTrim**: Making Copilot smarter, faster, and more efficient. ⚡
