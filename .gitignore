@@ -1,0 +1,53 @@
+# Build outputs
+dist/
+out/
+*.js.map
+*.d.ts.map
+
+# Node modules
+node_modules/
+package-lock.json
+yarn.lock
+
+# VS Code
+.vscode/
+.vscode-test/
+.history/
+*.code-workspace
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+.nyc_output/
+
+# Extension packaging
+*.vsix
+.vscode-test/
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+
+# Python (if any)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+*.sublime-workspace

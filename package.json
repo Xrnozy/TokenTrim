@@ -1,0 +1,120 @@
+{
+  "name": "token-trim",
+  "displayName": "TokenTrim",
+  "description": "Context optimization layer for GitHub Copilot. Compresses project context dynamically to reduce token usage and noise.",
+  "version": "0.1.0",
+  "publisher": "tokentrim",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "AI",
+    "Education",
+    "Other"
+  ],
+  "keywords": [
+    "copilot",
+    "context",
+    "compression",
+    "optimization",
+    "ai"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "icon": "media/icon.png",
+  "contributes": {
+    "commands": [
+      {
+        "command": "token-trim.recache",
+        "title": "TokenTrim: Recache Project Context",
+        "category": "TokenTrim"
+      },
+      {
+        "command": "token-trim.showCompressed",
+        "title": "TokenTrim: Show Compressed Context",
+        "category": "TokenTrim"
+      },
+      {
+        "command": "token-trim.sendToCopilot",
+        "title": "TokenTrim: Send to Copilot",
+        "category": "TokenTrim"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "token-trim-container",
+          "title": "TokenTrim",
+          "icon": "media/icon-activity.svg"
+        }
+      ]
+    },
+    "views": {
+      "token-trim-container": [
+        {
+          "id": "token-trim-panel",
+          "name": "TokenTrim Panel",
+          "type": "webview",
+          "icon": "media/icon-activity.svg"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "TokenTrim",
+      "properties": {
+        "tokenTrim.compressionLevel": {
+          "type": "string",
+          "default": "balanced",
+          "enum": [
+            "light",
+            "balanced",
+            "aggressive"
+          ],
+          "description": "Compression level for context optimization"
+        },
+        "tokenTrim.autoRecacheInterval": {
+          "type": "number",
+          "default": 300000,
+          "description": "Auto-recache interval in milliseconds (0 to disable)"
+        },
+        "tokenTrim.excludePatterns": {
+          "type": "array",
+          "default": [
+            "node_modules/**",
+            "dist/**",
+            ".git/**",
+            "coverage/**"
+          ],
+          "description": "Patterns to exclude from compression"
+        },
+        "tokenTrim.maxContextSize": {
+          "type": "number",
+          "default": 32000,
+          "description": "Maximum context size in tokens"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --platform=node --target=node20",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+    "test": "node ./out/test/runTest.js",
+    "pretest": "npm run esbuild && tsc -p . --outDir out",
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p .",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.37",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "esbuild": "^0.19.0",
+    "eslint": "^8.50.0",
+    "typescript": "^5.3.0"
+  }
+}
